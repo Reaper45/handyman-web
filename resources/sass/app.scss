@@ -4,5 +4,15 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import 'tailwind.css';
+
+@import 'auth.scss';
+
+body {
+  height: 100vh;
+  background-color: #F2F5FA;
+}
+
+main {
+  height: 100%;
+}
