@@ -15,12 +15,17 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            // $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreignId('party_id');
+            $table->enum('type', ['ADMIN', 'HANDYMAN', 'CLIENT']);
             $table->rememberToken();
             $table->timestamps();
+
+            // $table->foreign('party_id')->references('id')->on('parties');
+
         });
     }
 

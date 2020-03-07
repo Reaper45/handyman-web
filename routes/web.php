@@ -17,10 +17,10 @@ Auth::routes(["register" => false]);
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/handymen', 'HomeController@index')->name('handymen');
+Route::get('/handymen', 'DashboardController@index')->name('handymen');
 
-Route::get('/clients', 'HomeController@index')->name('clients');
+Route::get('/clients', 'DashboardController@index')->name('clients');
 
-Route::get('/jobs', 'HomeController@index')->name('jobs');
+Route::get('/jobs', 'DashboardController@index')->name('jobs');
