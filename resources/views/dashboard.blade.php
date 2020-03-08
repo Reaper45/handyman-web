@@ -8,7 +8,7 @@
             <p>{{ session('status') }}</p>
         </div>
     @endif
-    <div class="flex justify-between">
+    <div class="flex justify-between px-4 sm:px-0 lg:px-0"">
         <div><b class="font-sm tracking-wider text-gray-900">Overview</b></div>
         <div x-data="{ open: false }" @keydown.escape="open = false" @click.away="open = false" class="relative inline-block text-left">
             <div>
@@ -45,15 +45,15 @@
             </div>
         </div>
     </div>
-    <section class="py-5">
+    <section class="py-5 px-4 sm:px-0 lg:px-0">
         <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
-            <x-stat-card />
-            <x-stat-card />
-            <x-stat-card />
-            <x-stat-card />
+            <x-stat-card icon="icons/icon-user-check.svg" value="23" title="Active handymen" to="/handymen" />
+            <x-stat-card icon="icons/icon-group.svg" value="34" title="Total clients" to="/clients" />
+            <x-stat-card icon="icons/icon-thumb-up.svg" value="5" title="Jobs complete" to="/jobs" />
+            <x-stat-card icon="icons/icon-briefcase.svg" value="8" title="Ongoing jobs" to="/jobs" />
         </div>
     </section>
-    <section class="py-5">
+    <section class="py-5 px-4 sm:px-0 lg:px-0"">
         <div class="flex justify-between">
             <div><b class="font-sm tracking-wider text-gray-900">Recent activities</b></div>
             <a class="text-indigo-700" href="#">View all activities</a>

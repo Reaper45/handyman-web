@@ -19,7 +19,7 @@ class Header extends Component
      *
      * @return void
      */
-    public function __construct($title)
+    public function __construct()
     {
         $this->title = Route::currentRouteName();
     }

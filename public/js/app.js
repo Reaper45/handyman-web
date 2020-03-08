@@ -28642,26 +28642,14 @@ if (false) {} else {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes React and other helpers. It's a great starting point while
- * building robust, powerful web applications using React + Laravel.
- */
-// require('./bootstrap');
-
-/**
- * Next, we will create a fresh React component instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-__webpack_require__(/*! ./components/RecentActivities */ "./resources/js/components/RecentActivities.js");
+__webpack_require__(/*! ./components/RecentActivities */ "./resources/js/components/RecentActivities.jsx");
 
 /***/ }),
 
-/***/ "./resources/js/components/RecentActivities.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/RecentActivities.js ***!
-  \*****************************************************/
+/***/ "./resources/js/components/RecentActivities.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/components/RecentActivities.jsx ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -28671,19 +28659,129 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _jobs_Job__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./jobs/Job */ "./resources/js/components/jobs/Job.jsx");
+
 
 
 
 function RecentActivities() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
-  });
+    className: "mt-8"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: ""
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "bg-white mb-2 border border-gray-400 rounded-md"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_jobs_Job__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "bg-white mb-2 border border-gray-400 rounded-md"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_jobs_Job__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "bg-white mb-2 border border-gray-400 rounded-md"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_jobs_Job__WEBPACK_IMPORTED_MODULE_2__["default"], null))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (RecentActivities);
 
 if (document.getElementById('recent-activities')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(RecentActivities, null), document.getElementById("recent-activities"));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/jobs/Job.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/components/jobs/Job.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Job; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function Job() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "px-4 py-4 sm:px-5 flex hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex-1 flex"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mr-4 hidden xs:block md:block"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    "class": "border border-gray-400 rounded-md h-10 w-10",
+    src: "img/logo.png",
+    alt: ""
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "items-center flex-1 max-w-lg"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "text-sm leading-5 font-medium text-indigo-600 truncate"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+    className: "ml-1"
+  }, "Fix leaking sink"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "ml-1 text-gray-500"
+  }, "for Joram Mwashighadi")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sm:flex flex-1 max-w-xl truncate"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mr-6 flex items-center text-sm leading-5 text-gray-500"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "flex items-center text-sm leading-5"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    "class": "flex-shrink-0 mr-3 h-5 w-5 text-gray-400",
+    fill: "currentColor",
+    viewBox: "0 0 20 20"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    "fill-rule": "evenodd",
+    d: "M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z",
+    "clip-rule": "evenodd"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
+  })), "Plumbing"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "flex ml-3 items-center text-sm leading-5"
+  }, "|", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    "class": "ml-3 flex-shrink-0 h-5 w-5 text-gray-400",
+    fill: "currentColor",
+    viewBox: "0 0 20 20"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    "fill-rule": "evenodd",
+    d: "M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z",
+    "clip-rule": "evenodd"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", {
+    className: "ml-3 hidden xs:inline-flex md:inline-flex"
+  }, "Posted Today")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "inline-flex ml-3 px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+  }, "Complete")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "items-center flex-shrink hidden sm:flex md:flex lg:flex "
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mr-2"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    "class": "h-10 w-10 rounded-full",
+    src: "https://res.cloudinary.com/joram/image/upload/w_60,h_60/v1583533718/20180425_133816.jpg",
+    alt: ""
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "text-sm leading-5 font-medium text-gray-700 truncate"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
+    className: "ml-1"
+  }, "Joram Mwashighadi"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex items-center text-sm leading-5 text-gray-500"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    className: "flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400",
+    fill: "currentColor",
+    viewBox: "0 0 20 20"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    "fill-rule": "evenodd",
+    d: "M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z",
+    "clip-rule": "evenodd"
+  })), "Remote")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "self-center\tmr-2"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    "class": "py-1 text-sm font-semibold text-gray-700 "
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    "class": "fill-current opacity-75 h-4 w-4",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"
+  })))));
 }
 
 /***/ }),
