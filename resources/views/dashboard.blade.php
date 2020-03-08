@@ -9,7 +9,7 @@
         </div>
     @endif
     <div class="flex justify-between">
-        <div><b class="font-sm tracking-wider	">Overview</b></div>
+        <div><b class="font-sm tracking-wider text-gray-900">Overview</b></div>
         <div x-data="{ open: false }" @keydown.escape="open = false" @click.away="open = false" class="relative inline-block text-left">
             <div>
                 <span class="rounded-md shadow-sm">
@@ -46,7 +46,19 @@
         </div>
     </div>
     <section class="py-5">
-        <x-stat-card />
+        <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+            <x-stat-card />
+            <x-stat-card />
+            <x-stat-card />
+            <x-stat-card />
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="flex justify-between">
+            <div><b class="font-sm tracking-wider text-gray-900">Recent activities</b></div>
+            <a class="text-indigo-700" href="#">View all activities</a>
+        </div>
+        <div id="recent-activities"></div>
     </section>
 </x-main>
 @endsection

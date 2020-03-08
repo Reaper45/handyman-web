@@ -69,12 +69,12 @@
             <img class="h-10 w-10 rounded-full" src="https://res.cloudinary.com/joram/image/upload/w_60,h_60/v1583533718/20180425_133816.jpg" alt="" />
           </div>
           <div class="ml-3">
-            <div class="text-base font-medium leading-none text-white">{{ auth()->user()->name }} (Admin) </div>
-            <div class="mt-1 text-sm font-medium leading-none text-gray-400">{{ auth()->user()->email }}</div>
+            <div class="text-base font-medium leading-none text-white">{{ auth()->user()->party->name }} </div>
+            <div class="mt-1 text-sm font-medium leading-none text-gray-400">View profile</div>
           </div>
         </div>
         <div class="mt-3 px-2">
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">{{ auth()->user()->name }} (Admin)</a>
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Settings</a>
           <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                         class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Sign out</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
