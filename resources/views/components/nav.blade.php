@@ -27,7 +27,7 @@
                   <img class="h-8 w-8 rounded-full" src="https://res.cloudinary.com/joram/image/upload/w_60,h_60/v1583533718/20180425_133816.jpg" alt="" />
                 </button>
               </div>
-              <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg">
+              <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute z-10 right-0 mt-2 w-56 rounded-md shadow-lg">
                 <div class="py-1 rounded-md bg-white shadow-xs">
                 
                   <a href="#" class="block border-gray-400 border-b px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
