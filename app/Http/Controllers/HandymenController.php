@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Party;
+use App\User;
 use Illuminate\Http\Request;
 
 class HandymenController extends PartyController
@@ -13,7 +15,9 @@ class HandymenController extends PartyController
      */
     public function index()
     {
-        return view('handymen');
+        $handymen = User::where("type", "HANDYMAN")->get();
+
+        return view('handymen')->with(["handymen" => $handymen]);
     }
 
     /**
