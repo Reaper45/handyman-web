@@ -44,7 +44,7 @@
                             />
                         </svg>
                         <em class="ml-3 hidden xs:inline-flex md:inline-flex">
-                            Posted Today
+                            <small>Posted Today</small>
                         </em>
                     </span>
                 </div>
