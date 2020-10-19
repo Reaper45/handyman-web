@@ -16,12 +16,13 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->text('description');
-            $table->enum('status', ['PENDING', 'ONGOING', 'COMPLETE', 'CANCEL'])->default("PENDING");
+            $table->enum('status', ['PENDING', 'ONGOING', 'COMPLETE'])->default("PENDING");
             $table->foreignId('created_by');
             $table->foreignId('assigned_to')->nullable();
             $table->foreignId('category_id')->nullable();
             $table->float('lat')->nullable();
             $table->float('lon')->nullable();
+            $table->string('location')->nullable();
             $table->float('amount', 8, 2)->nullable();;
             $table->timestamps();
 

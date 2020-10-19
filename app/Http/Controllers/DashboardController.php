@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -33,6 +32,9 @@ class DashboardController extends Controller
             "complete" => Job::where('status', 'COMPLETE')->count(),
         ];
 
-        return view('dashboard')->with(["stats" => $stats]);
+        // Recently updated jobs
+        $jobs = DB::table('jobs')->orderBy('updated_at', 'desc')->limit(5)->get();
+
+        return view('dashboard')->with(["stats" => $stats, "jobs" => $jobs]);
     }
 }
