@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Nav extends Component
+class NavComponent extends Component
 {
     /**
      * Create a new component instance.

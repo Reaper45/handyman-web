@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Stat extends Component
+class StatComponent extends Component
 {
     public $title;
 

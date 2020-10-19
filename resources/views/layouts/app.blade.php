@@ -23,10 +23,10 @@
 </head>
 <body>
     @auth
-        <x-nav />
-        <x-header title="Dashboard">
+        <x-nav-component />
+        <x-header-component title="Dashboard">
     @endauth
-    </x-header>
+    </x-header-component>
     @yield('content')
 </body>
 </html>

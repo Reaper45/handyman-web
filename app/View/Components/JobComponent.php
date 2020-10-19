@@ -3,25 +3,19 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use Illuminate\Support\Facades\Route;
 
-class Header extends Component
+class JobComponent extends Component
 {
-    /**
-     * The header title.
-     *
-     * @var string
-     */
-    public $title;
+    public $job;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($job)
     {
-        $this->title = Route::currentRouteName();
+        $this->job = $job;
     }
 
     /**
@@ -31,6 +25,6 @@ class Header extends Component
      */
     public function render()
     {
-        return view('components.header');
+        return view('components.job');
     }
 }

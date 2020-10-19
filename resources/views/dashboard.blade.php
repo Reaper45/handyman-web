@@ -13,25 +13,25 @@
     </div>
     <section class="py-5 px-4 sm:px-0 lg:px-0">
         <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
-            <x-stat
+            <x-stat-component
                 title="Active handymen"
                 icon="icon-user-check.svg"
                 to="/handymen"
                 :value="$stats['handymen']"
             />
-            <x-stat
+            <x-stat-component
                 title="Total clients"
                 icon="icon-group.svg"
                 to="/clients"
                 :value="$stats['clients']"
             />
-            <x-stat
+            <x-stat-component
                 title="Jobs complete"
                 icon="icon-thumb-up.svg"
                 to="/jobs"
                 :value="$stats['complete']"
             />
-            <x-stat
+            <x-stat-component
                 title="Ongoing jobs"
                 icon="icon-briefcase.svg"
                 to="/jobs"
@@ -62,7 +62,7 @@
                         </thead>
                         <tbody class="">
                             @foreach ($jobs as $job)
-                                <x-job :job="$job"/>
+                                <x-job-component :job="$job"/>
                             @endforeach
                         </tbody>
                     </table>
