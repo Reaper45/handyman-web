@@ -10,5 +10,26 @@
     @endif
     <!-- Content -->
 
+    <div class="align-middle inline-block min-w-full overflow-hidden sm:rounded-lg">
+        <table class="min-w-full">
+            <thead>
+                <tr>
+                    <th class="px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        User details
+                    </th>
+                    <th class="px-6 py-3 border-b border-gray-200"></th>
+                    <th class="px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                @foreach ($clients as $user)
+                    <x-user-component :user="$user" />
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </x-main>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ClientsController extends Controller
 {
@@ -13,7 +14,9 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        return view('clients');
+        $clients = User::where("type", "CLIENT")->get();
+
+        return view('clients')->with(["clients" => $clients]);
     }
 
     /**
