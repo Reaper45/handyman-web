@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(["register" => false]);
 
-Route::get('/', 'Auth\LoginController@showLoginForm');
+Route::get('/', 'DashboardController@index')->name('dashboard');
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+// Handymen
+Route::get('/handymen', 'HandymenController@index')->name('handymen');
 
-Route::get('/handymen', 'DashboardController@index')->name('handymen');
+// Clients
+Route::get('/clients', 'ClientsController@index')->name('clients');
 
-Route::get('/clients', 'DashboardController@index')->name('clients');
-
-Route::get('/jobs', 'DashboardController@index')->name('jobs');
+// Jobs
+Route::get('/jobs', 'JobsController@index')->name('jobs');

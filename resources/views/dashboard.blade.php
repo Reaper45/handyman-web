@@ -45,7 +45,33 @@
             </div>
         </div>
     </div>
-    <section class="py-5 px-4 sm:px-0 lg:px-0" id="dashboard-stats">
+    <section class="py-5 px-4 sm:px-0 lg:px-0">
+        <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+            <x-stat
+                title="Active handymen"
+                icon="icon-user-check.svg"
+                to="/handymen"
+                :value="$stats['handymen']"
+            />
+            <x-stat
+                title="Total clients"
+                icon="icon-group.svg"
+                to="/clients"
+                :value="$stats['clients']"
+            />
+            <x-stat
+                title="Jobs complete"
+                icon="icon-thumb-up.svg"
+                to="/jobs"
+                :value="$stats['complete']"
+            />
+            <x-stat
+                title="Ongoing jobs"
+                icon="icon-briefcase.svg"
+                to="/jobs"
+                :value="$stats['ongoing']"
+            />
+        </div>
     </section>
     <section class="py-5 px-4 sm:px-0 lg:px-0">
         <div class="flex justify-between">

@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\ControllerHelpers;
+use App\Job;
+use App\User;
 use Illuminate\Http\Request;
 
-class HandymanController extends PartyController
+class ApiController extends Controller
 {
+    use ControllerHelpers;
+
     /**
-     * Display a listing of the resource.
+     * Get dashboard stats.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function stats()
     {
-        //
+        // return response($this->api_response(true, ["stats" => $stats], "Request completed"), 200);
     }
 
     /**

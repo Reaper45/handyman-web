@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class JobController extends Controller
+class HandymenController extends PartyController
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        return view('handymen');
     }
 
     /**
