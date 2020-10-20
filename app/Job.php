@@ -8,12 +8,12 @@ class Job extends Model
 {
     // Handyman
     public function handyman() {
-        return $this->hasOne(Party::class, 'foreign_key', 'assign_to_id');
+        return $this->hasOne(Party::class, 'id', 'assigned_to');
     }
 
-    // Cretor of the job
+    // Creator of the job
     public function creator() {
-        return $this->belongTo(Party::class);
+        return $this->belongsTo(Party::class, 'created_by');
     }
 
     public function category() {

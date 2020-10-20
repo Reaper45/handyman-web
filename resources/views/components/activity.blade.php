@@ -11,7 +11,7 @@
                 <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
                     <b class="ml-1">{{ $job->description }}</b>
                     <span class="ml-1 text-gray-500">
-                        for {{$job->creator->name }}
+                        for Joram Mwashighadi
                     </span>
                 </div>
                 <div class="flex text-sm leading-5 text-gray-500">
@@ -57,12 +57,12 @@
            <div class="mr-2">
             <img
                 class="h-10 w-10 rounded-full"
-                src="{{ Gravatar::get($job->handyman->email) }}"
+                src="{{ Gravatar::get($job->email) }}"
                 alt=""
             />
         </div>
         <div class="text-sm leading-5 font-medium text-gray-700 truncate">
-            <b class="ml-1">{{ $job->handyman->name }}</b>
+            <b class="ml-1">{{ $job->name }}</b>
             <div class="flex items-center text-sm leading-5 text-gray-500">
                 <svg
                     class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"

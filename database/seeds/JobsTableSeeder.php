@@ -12,7 +12,8 @@ class JobsTableSeeder extends Seeder
      */
     public function run()
     {
-        $party = App\Party::whereEmail('client@handyman.com')->first();
+        $party    = App\Party::whereEmail('client@handyman.com')->first();
+        $handyman = App\Party::whereEmail('technician@handyman.com')->first();
 
         $jobs = [
             [
@@ -20,6 +21,7 @@ class JobsTableSeeder extends Seeder
                 "lat"         => '-4.048629',
                 "lon"         => '39.704943',
                 "created_by"  => $party->id,
+                "assigned_to" => $handyman->id,
                 "status"      => "COMPLETE"
             ],
             [
@@ -27,12 +29,14 @@ class JobsTableSeeder extends Seeder
                 "lat"         => '-4.048629',
                 "lon"         => '39.704943',
                 "created_by"  => $party->id,
+                "assigned_to" => $handyman->id,
                 "status"      => "ONGOING"
             ],
             [
                 "description" => 'Fix leaking ceiling',
                 "lat"         => '-4.048629',
                 "lon"         => '39.704943',
+                "assigned_to" => $handyman->id,
                 "created_by"  => $party->id,
                 "status"      => "COMPLETE"
             ]

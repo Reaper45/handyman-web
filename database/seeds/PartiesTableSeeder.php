@@ -14,19 +14,19 @@ class PartiesTableSeeder extends Seeder
     {
         $users = [
             [
-                'name'      => 'Handyman Admin',
+                'name'      => 'Joram Mwashighadi',
                 'email'     => 'jomwashighadi@gmail.com',
                 'password'  => Hash::make('admin'),
                 'user_type' => "ADMIN"
             ],
             [
-                'name'      => 'Handmany Test',
+                'name'      => 'Harold Kioko',
                 'email'     => 'technician@handyman.com',
                 'password'  => Hash::make('password'),
                 'user_type' => "HANDYMAN"
             ],
             [
-                'name'      => 'Handyman Client',
+                'name'      => 'Alphoso Makau',
                 'email'     => 'client@handyman.com',
                 'password'  => Hash::make('password'),
                 'user_type' => "CLIENT"
