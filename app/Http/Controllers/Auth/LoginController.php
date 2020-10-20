@@ -49,4 +49,21 @@ class LoginController extends Controller
             return redirect()->intended('dashboard');
         }
     }
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) {
+            $user = $this->guard()->user();
+            $user->generateToken();
+
+            return $request->wantsJson()
+                    ? response()->json([
+                'data' => ['user' => $user->toArray()],
+            ]) : redirect()->intended($this->redirectPath());
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
 }
