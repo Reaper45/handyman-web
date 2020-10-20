@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traits\ControllerHelpers;
 use App\Job;
-use App\User;
+use App\Party;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -24,13 +24,22 @@ class ApiController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Accept job.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function acceptJob(Request $request)
     {
-        //
+        $party_id = $request->input('party_id');
+        $job_id  = $request->input('job_id');
+
+        $job = Job::find($job_id);
+        $handyman = Party::find($party_id);
+
+        $job->handyman()->update();
+
+        return response($this->api_response(true, null, "Request completed"), 200);
+
     }
 
     /**

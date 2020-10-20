@@ -28,4 +28,6 @@ Route::prefix('v1')->group(function (){
     // Api routes
     Route::get('/jobs', 'ApiController@jobs');
 
+    Route::post('/jobs/accept', 'ApiController@acceptJob');
+
 });

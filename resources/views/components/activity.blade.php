@@ -77,7 +77,7 @@
                         clip-rule="evenodd"
                     ></path>
                 </svg>
-                Ruaka
+                {{$job->location}}
             </div>
         </div>
        </div>
