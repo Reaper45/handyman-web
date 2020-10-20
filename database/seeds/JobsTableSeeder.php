@@ -20,6 +20,8 @@ class JobsTableSeeder extends Seeder
                 "description" => 'Fix leaking sink',
                 "lat"         => '-4.048629',
                 "lon"         => '39.704943',
+                "location"    => 'Ruaka',
+                "amount"      => '3000',
                 "created_by"  => $party->id,
                 "assigned_to" => $handyman->id,
                 "status"      => "COMPLETE"
@@ -28,6 +30,8 @@ class JobsTableSeeder extends Seeder
                 "description" => 'Fix cranky door',
                 "lat"         => '-4.048629',
                 "lon"         => '39.704943',
+                "location"    => 'Banana',
+                "amount"      => '3500',
                 "created_by"  => $party->id,
                 "assigned_to" => $handyman->id,
                 "status"      => "ONGOING"
@@ -36,9 +40,31 @@ class JobsTableSeeder extends Seeder
                 "description" => 'Fix leaking ceiling',
                 "lat"         => '-4.048629',
                 "lon"         => '39.704943',
+                "location"    => 'Rosslyn',
+                "amount"      => '2600',
                 "assigned_to" => $handyman->id,
                 "created_by"  => $party->id,
                 "status"      => "COMPLETE"
+            ],
+            [
+                "description" => 'Fix leaking ceiling',
+                "lat"         => '-4.048629',
+                "lon"         => '39.704943',
+                "location"    => 'Ruaka',
+                "amount"      => '6100',
+                "assigned_to" => null,
+                "created_by"  => $party->id,
+                "status"      => "PENDING"
+            ],
+            [
+                "description" => 'Doing laundry',
+                "lat"         => '-4.048629',
+                "lon"         => '39.704943',
+                "location"    => 'Rosslyn',
+                "amount"      => '4300',
+                "assigned_to" => null,
+                "created_by"  => $party->id,
+                "status"      => "PENDING"
             ]
         ];
 

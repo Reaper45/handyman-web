@@ -16,9 +16,11 @@ class ApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function stats()
+    public function jobs()
     {
-        // return response($this->api_response(true, ["stats" => $stats], "Request completed"), 200);
+        $jobs = Job::where('status', 'PENDING')->get();
+
+        return response($this->api_response(true, ["jobs" => $jobs], "Request completed"), 200);
     }
 
     /**
