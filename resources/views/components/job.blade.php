@@ -9,7 +9,7 @@
             </div>
             <div class="ml-4">
                 <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
-                    <b class="ml-1">Fix leaking sink</b>
+                    <b class="ml-1">{{ $job->description }}</b>
                     <span class="ml-1 text-gray-500">
                         for Joram Mwashighadi
                     </span>
@@ -57,12 +57,12 @@
            <div class="mr-2">
             <img
                 class="h-10 w-10 rounded-full"
-                src="https://res.cloudinary.com/joram/image/upload/w_60,h_60/v1583533718/20180425_133816.jpg"
+                src="{{ Gravatar::get($job->email) }}"
                 alt=""
             />
         </div>
         <div class="text-sm leading-5 font-medium text-gray-700 truncate">
-            <b class="ml-1">Joram Mwashighadi</b>
+            <b class="ml-1">{{ $job->name }}</b>
             <div class="flex items-center text-sm leading-5 text-gray-500">
                 <svg
                     class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
@@ -85,7 +85,7 @@
 
     <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium border-b border-gray-200">
         <span class="inline-flex ml-3 px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-            Complete
+            {{$job->status}}
         </span>
     </td>
 </tr>

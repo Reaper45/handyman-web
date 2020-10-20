@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class HandymenController extends PartyController
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
