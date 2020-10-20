@@ -84,7 +84,7 @@
     </td>
 
     <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium border-b border-gray-200">
-        <span class="inline-flex ml-3 px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+        <span class="inline-flex ml-3 px-2 text-xs leading-5 font-semibold rounded-full bg-{{ $job->status === "COMPLETE" ? "green" : ($job->status === "ONGOING" ? "blue" : "orange")  }}-200 text-{{ $job->status === "COMPLETE" ? "green" : ($job->status === "ONGOING" ? "blue" : "orange")  }}-800">
             {{$job->status}}
         </span>
     </td>
