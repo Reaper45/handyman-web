@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -67,9 +68,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Log::info( $data);
+
         $party = Party::create([
-            'name'  => $data['name'],
-            'email' => $data['email'],
+            'name'         => $data['name'],
+            'email'        => $data['email'],
+            'phone_number' => $data['phone_number'],
         ]);
             
         $user = new User;
@@ -77,10 +81,10 @@ class RegisterController extends Controller
         $user->email     = $data['email'];
         $user->password  = Hash::make($data['password']);
         $user->api_token = Str::random(60);
-        // $user->type      = $user['user_type'];
+        $user->type      = $data['user_type'];
+
 
         return $party->user()->save($user);
-
 
         // return User::create([
         //     'name' => $data['name'],

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Party extends Model
 {
     protected $fillable = [
-        'name', 'email'
+        'name', 'email', 'phone_number'
     ];
 
     public function user() {
