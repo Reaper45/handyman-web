@@ -68,8 +68,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        Log::info( $data);
-
         $party = Party::create([
             'name'         => $data['name'],
             'email'        => $data['email'],
