@@ -34,11 +34,12 @@ class ApiController extends Controller
         $job_id  = $request->input('job_id');
 
         $job = Job::find($job_id);
-        $handyman = Party::find($party_id);
+        $job->assigned_to = $party_id;
+        $job->status = "ONGOING";
 
-        $job->handyman()->update();
+        $job->update();
 
-        return response($this->api_response(true, null, "Request completed"), 200);
+        return response($this->api_response(true, ["job" => $job], "Request completed"), 200);
 
     }
 
