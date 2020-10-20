@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
                         ->nullable()
                         ->default(null);
             $table->foreignId('party_id');
-            $table->enum('type', ['ADMIN', 'HANDYMAN', 'CLIENT']);
+            $table->enum('type', ['ADMIN', 'HANDYMAN', 'CLIENT'])->default("CLIENT");
             $table->rememberToken();
             $table->timestamps();
 

@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Party;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -64,10 +67,32 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $party = Party::create([
+            'name'  => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
         ]);
+            
+        $user = new User;
+
+        $user->email     = $data['email'];
+        $user->password  = Hash::make($data['password']);
+        $user->api_token = Str::random(60);
+        // $user->type      = $user['user_type'];
+
+        return $party->user()->save($user);
+
+
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        $user->generateToken();
+
+        return response()->json(['data' => $user->toArray()], 201);
     }
 }

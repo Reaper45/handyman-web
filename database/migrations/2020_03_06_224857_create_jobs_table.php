@@ -23,7 +23,7 @@ class CreateJobsTable extends Migration
             $table->float('lat')->nullable();
             $table->float('lon')->nullable();
             $table->string('location')->nullable();
-            $table->float('amount', 8, 2)->nullable();;
+            $table->float('amount', 8, 2)->nullable();
             $table->timestamps();
 
             $table->foreign('created_by')->references('id')->on('parties');
