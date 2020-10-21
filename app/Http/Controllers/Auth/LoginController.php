@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ class LoginController extends Controller
 
             return $request->wantsJson()
                     ? response()->json([
-                'data' => ['user' => $user->toArray()],
+                'data' => ['user' => User::find($user->id)->load('party', 'party.categories')],
             ]) : redirect()->intended($this->redirectPath());
         }
 

@@ -44,14 +44,16 @@ class ApiController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * ongoingJobs
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function ongoingJobs($id)
     {
-        //
+        $jobs = Job::where('status', 'ONGOING')->where('assigned_to', $id)->get();
+
+        return response($this->api_response(true, ["jobs" => $jobs], "Request completed"), 200);
     }
 
     /**

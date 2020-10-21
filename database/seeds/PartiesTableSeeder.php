@@ -36,17 +36,22 @@ class PartiesTableSeeder extends Seeder
                 'user_type' => "CLIENT"
             ]
         ];
-        foreach ($users as $user) {
-            $party = App\Party::create(['name'=> $user['name'], 'email' => $user['email']]);
+        foreach ($users as $data) {
+            $party = App\Party::create(['name'=> $data['name'], 'email' => $data['email']]);
             
-            $n = new App\User;
+            $user = new App\User;
 
-            $n->email     = $user['email'];
-            $n->password  = $user['password'];
-            $n->api_token = $user['api_token'];
-            $n->type      = $user['user_type'];
+            $user->email     = $data['email'];
+            $user->password  = $data['password'];
+            $user->api_token = $data['api_token'];
+            $user->type      = $data['user_type'];
 
-            $party->user()->save($n);
+            $party->user()->save($user);
+
+            if($data['user_type'] == 'HANDYMAN'){
+                $category = App\Category::all()->first();
+                $party->categories()->attach($category); 
+            }
         }
     }
 }

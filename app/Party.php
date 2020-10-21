@@ -18,4 +18,12 @@ class Party extends Model
     public function jobs() {
         return $this->hasMany(Job::class);
     }
+
+    //
+    public function categories()
+    {
+        # code...
+        return $this->belongsToMany(Category::class, 'party_categories', 'party_id', 'category_id');
+
+    }
 }

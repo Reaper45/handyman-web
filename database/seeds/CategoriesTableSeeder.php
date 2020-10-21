@@ -14,8 +14,8 @@ class CategoriesTableSeeder extends Seeder
     {
         $categories = [
         [
-          'name'=>'Plumbimg',
-          'slug'=>Str::of('Plumbimg')->slug('-'),
+          'name'=>'Plumbing',
+          'slug'=>Str::of('Plumbing')->slug('-'),
           'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
            Suspendisse interdum, velit nec blandit gravida, felis nulla dapibus
            odio, ac efficitur velit magna in purus.'

@@ -30,4 +30,13 @@ Route::prefix('v1')->group(function (){
 
     Route::post('/jobs/accept', 'ApiController@acceptJob');
 
+    Route::get('/party/{id}/jobs/ongoing', 'ApiController@ongoingJobs');
+    
+    // Route::get('/test', function() {
+    //     return response()->json([
+    //         "user" => App\User::find(1)->load('party')
+    //     ]);
+    // });
+
 });
+
