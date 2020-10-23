@@ -15,7 +15,7 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ['PENDING', 'ONGOING', 'COMPLETE'])->default("PENDING");
+            $table->enum('status', ['PENDING', 'ONGOING', 'COMPLETE', 'CANCELED'])->default("PENDING");
             $table->float('lat')->nullable();
             $table->float('lon')->nullable();
             $table->string('location')->nullable();

@@ -41,6 +41,9 @@ Route::prefix('v1')->group(function (){
     
     Route::get('/categories/{id}/services', 'ApiController@categoryServices');
 
+    // Clients
+    Route::get('/clients/{id}/jobs', 'ApiController@clientsJobs');
+
     // Route::get('/test', function() {
     //     return response()->json([
     //         "user" => App\User::find(1)->load('party')

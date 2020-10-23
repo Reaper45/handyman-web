@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class JobsTableSeeder extends Seeder
 {
@@ -80,6 +79,9 @@ class JobsTableSeeder extends Seeder
             ]
         ];
 
-        DB::table('jobs')->insert($jobs);   
+
+        foreach ($jobs as $job) {
+            App\Job::create($job);
+        }
     }
 }

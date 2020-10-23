@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\ControllerHelpers;
 use App\Job;
 use App\Party;
 use App\Service;
+use App\User;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -20,7 +21,7 @@ class ApiController extends Controller
      */
     public function jobs()
     {
-        $jobs = Job::where('status', 'PENDING')->get();
+        $jobs = Job::where('status', 'PENDING')->with('service')->latest()->get();
 
         return response($this->api_response(true, ["jobs" => $jobs], "Request completed"), 200);
     }
@@ -53,7 +54,7 @@ class ApiController extends Controller
      */
     public function ongoingJobs($id)
     {
-        $jobs = Job::where('status', 'ONGOING')->where('assigned_to', $id)->get();
+        $jobs = Job::where('status', 'ONGOING')->where('assigned_to', $id)->with('service')->latest()->get();
 
         return response($this->api_response(true, ["jobs" => $jobs], "Request completed"), 200);
     }
@@ -125,12 +126,26 @@ class ApiController extends Controller
         $job = new Job();
         $job->service_id  = $service_id;
         $job->category_id = $category_id;
-        $job->created_by  = $location;
+        $job->location    = $location;
         $job->extra       = $info;
         $job->created_by  = $user_id;
 
         $job->save();
 
         return response($this->api_response(true, ["job" => $job], "Request completed"), 200);
+    }
+
+    /**
+     * clientsJobs
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function clientsJobs($id)
+    {
+        $jobs = Job::where('created_by', $id)->with('service')->latest()->get();
+
+        return response($this->api_response(true, ["jobs" => $jobs], "Request completed"), 200);
+
     }
 }
