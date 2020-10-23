@@ -24,9 +24,7 @@
 <body>
     @auth
         <x-nav-component />
-        <x-header-component title="Dashboard">
     @endauth
-    </x-header-component>
     @yield('content')
 </body>
 </html>

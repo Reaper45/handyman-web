@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Controllers\Traits\ControllerHelpers;
 use App\Job;
 use App\Party;
@@ -57,32 +58,43 @@ class ApiController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * completeJob
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function completeJob(Request $request)
     {
-        //
+        $job_id  = $request->input('job_id');
+        
+        $job = Job::find($job_id);
+        $job->status = "COMPLETE";
+
+        $job->update();
+
+        return response($this->api_response(true, ["job" => $job], "Request completed"), 200);
+
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * categories
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function categories(Request $request)
     {
-        //
+        $categories = Category::all();
+
+        return response($this->api_response(true, ["categories" => $categories], "Request completed"), 200);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * 
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)

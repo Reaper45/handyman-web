@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<x-header >
+    <x-slot name="title">
+        Jobs
+    </x-slot>
+</x-header>
 <x-main>
      @if (session('status'))
         <div class="flex mb-3 items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">

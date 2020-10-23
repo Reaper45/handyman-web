@@ -11,6 +11,7 @@
               <a href="{{ route('handymen') }}" class="{{ (request()->is('handymen*')) ? 'bg-gray-900 text-white' : 'text-gray-300' }} ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Handymen</a>
               <a href="{{ route('clients') }}" class="{{ (request()->is('clients*')) ? 'bg-gray-900 text-white' : 'text-gray-300' }} ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Clients</a>
               <a href="{{ route('jobs') }}" class="{{ (request()->is('jobs*')) ? 'bg-gray-900 text-white' : 'text-gray-300' }} ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Jobs</a>
+              <a href="{{ route('categories') }}" class="{{ (request()->is('categories*')) ? 'bg-gray-900 text-white' : 'text-gray-300' }} ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Categories</a>
             </div>
           </div>
         </div>
@@ -62,6 +63,7 @@
         <a href="{{ route('handymen') }}"  class="{{ (request()->is('handymen*')) ? 'bg-gray-900 text-white' : 'text-gray-300' }} mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Handymen</a>
         <a href="{{ route('clients') }}"  class="{{ (request()->is('clients*')) ? 'bg-gray-900 text-white' : 'text-gray-300' }} mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Clients</a>
         <a href="{{ route('jobs') }}"  class="{{ (request()->is('jobs*')) ? 'bg-gray-900 text-white' : 'text-gray-300' }} mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Jobs</a>
+        <a href="{{ route('categories') }}"  class="{{ (request()->is('categories*')) ? 'bg-gray-900 text-white' : 'text-gray-300' }} mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Categories</a>
       </div>
       <div class="pt-4 pb-3 border-t border-gray-700">
         <div class="flex items-center px-5">

@@ -30,8 +30,12 @@ Route::prefix('v1')->group(function (){
 
     Route::post('/jobs/accept', 'ApiController@acceptJob');
 
+    Route::post('/jobs/complete', 'ApiController@completeJob');
+
     Route::get('/party/{id}/jobs/ongoing', 'ApiController@ongoingJobs');
-    
+
+    Route::get('/categories', 'ApiController@categories');
+
     // Route::get('/test', function() {
     //     return response()->json([
     //         "user" => App\User::find(1)->load('party')

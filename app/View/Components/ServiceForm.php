@@ -3,25 +3,17 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use Illuminate\Support\Facades\Route;
 
-class HeaderComponent extends Component
+class ServiceForm extends Component
 {
-    /**
-     * The header title.
-     *
-     * @var string
-     */
-    public $title;
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title = "")
+    public function __construct()
     {
-        $this->title = $title;
+        //
     }
 
     /**
@@ -31,6 +23,6 @@ class HeaderComponent extends Component
      */
     public function render()
     {
-        return view('components.header');
+        return view('components.service-form');
     }
 }

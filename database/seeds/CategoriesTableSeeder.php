@@ -14,59 +14,76 @@ class CategoriesTableSeeder extends Seeder
     {
         $categories = [
         [
-          'name'=>'Plumbing',
-          'slug'=>Str::of('Plumbing')->slug('-'),
-          'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Suspendisse interdum, velit nec blandit gravida, felis nulla dapibus
-           odio, ac efficitur velit magna in purus.'
+          'name'        =>'Plumbing',
+          'description' => 'Any system that conveys fluids for a wide range of applications. i.e  pipes, valves, plumbing fixtures, tanks',
+          'services'    => [
+            new  App\Service([
+              "amount" => '3500',
+              "title"  => "Fix leaking sink",
+            ])
+          ]
         ],
         [
-          'name'=>'Painting',
-          'slug'=>Str::of('Painter')->slug('-'),
-          'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Suspendisse interdum, velit nec blandit gravida, felis nulla dapibus
-           odio, ac efficitur velit magna in purus.'
+          'name'        =>'Painting',
+          'description' => 'Easily book a certified Pro & they will take care of everything - a perfect colour match, quality materials, and a perfect finish every time!',
+          'services'    => [
+            new  App\Service([
+              "amount" => '2500',
+              "title"  => "Fix leaking ceiling",
+            ])
+          ],
         ],
         [
-          'name'=>'Tilling',
-          'slug'=>Str::of('Tilling')->slug('-'),
-          'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Suspendisse interdum, velit nec blandit gravida, felis nulla dapibus
-           odio, ac efficitur velit magna in purus.'
+          'name'        => 'Tilling',
+          'description' => 'Easily book a vetted and certified Pro & they will take care of your floors and walls - a clean finish, quality materials, and great aesthetics',
         ],
         [
-          'name'=>'Electrical',
-          'slug'=>Str::of('Electrical')->slug('-'),
-          'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Suspendisse interdum, velit nec blandit gravida, felis nulla dapibus
-           odio, ac efficitur velit magna in purus.'
+          'name'        => 'Electrical',
+          'description' => 'Book an assessment and the Pro will be with you in as quickly as 4 hours. Quotes are provided at set rates, and assessment costs are deducted from the total job value',
         ],
         [
-          'name'=>'Washing Machine',
-          'slug'=>Str::of('Washing Machine')->slug('-'),
-          'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Suspendisse interdum, velit nec blandit gravida, felis nulla dapibus
-           odio, ac efficitur velit magna in purus.'
+          'name'        => 'Washing Machine',
+          'description' => 'Book an assessment and the Pro will be with you in as quickly as 4 hours. Quotes are provided at set rates, and assessment costs are deducted from the total job value',
         ],
         [
-          'name'=>'Air Conditioning',
-          'slug'=>Str::of('Air Conditioning')->slug('-'),
-          'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Suspendisse interdum, velit nec blandit gravida, felis nulla dapibus
-           odio, ac efficitur velit magna in purus.'
+          'name'        => 'Air Conditioning',
+          'description' => 'If you are installing a new air-conditioning unit or are working on maintaining an existing unit, it is critical that you find the right experts to perform the service',
         ],
         [
-          'name'=>'Welding',
-          'slug'=>Str::of('Welding')->slug('-'),
-          'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Suspendisse interdum, velit nec blandit gravida, felis nulla dapibus
-           odio, ac efficitur velit magna in purus.'
-        ]
+          'name'        => 'Welding',
+          'description' => 'Book an assessment and the Pro will be with you in as quickly as 4 hours. Quotes are provided at set rates, and assessment costs are deducted from the total job value',
+        ],
+        [
+          'name'        => 'General Handyman',
+          'description' => 'Book an assessment and the Pro will be with you in as quickly as 4 hours. Quotes are provided at set rates, and assessment costs are deducted from the total job value',
+          'services'    => [
+            new  App\Service([
+              "amount" => '3500',
+              "title"  => "Doing laundry",
+            ])
+          ],
+        ],
+        [
+          'name'        => 'Carpentry',
+          'description' => 'Book an assessment and the Pro will be with you in as quickly as 4 hours. Quotes are provided at set rates, and assessment costs are deducted from the total job value',
+          'services'    => [
+            new  App\Service([
+              "amount" => '4500',
+              "title"  => "Fix cranky dor",
+            ])
+          ],
+        ],
       ];
-      foreach ($categories as $category) {
-        App\Category::create($category);
-      }
+      foreach ($categories as $data) {
+        $category = App\Category::create([
+          "name"        => $data['name'],
+          "slug"        => Str::of($data['name'])->slug('-'),
+          "description" => $data['description'],
+        ]);
 
-    //   $this->enableForeignKeys();
+        if(array_key_exists('services', $data)) {
+          $category->services()->saveMany($data['services']);
+        }
+      }
     }
 }

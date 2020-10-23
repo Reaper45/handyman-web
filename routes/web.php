@@ -26,3 +26,15 @@ Route::get('/clients', 'ClientsController@index')->name('clients');
 
 // Jobs
 Route::get('/jobs', 'JobsController@index')->name('jobs');
+
+// Categories
+Route::get('/categories', 'CategoriesController@index')->name('categories');
+
+Route::post('/categories/create', 'CategoriesController@store')->name('categories.store');
+
+Route::delete('/categories/{id}', 'CategoriesController@destroy')->name('categories.delete');
+
+// Services
+Route::post('/services/create', 'ServicesController@store')->name('services.store');
+
+Route::delete('/services/{id}', 'ServicesController@destroy')->name('services.delete');
