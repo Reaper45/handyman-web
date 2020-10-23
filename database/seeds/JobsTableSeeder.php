@@ -15,6 +15,13 @@ class JobsTableSeeder extends Seeder
         $party    = App\Party::whereEmail('client@handyman.com')->first();
         $handyman = App\Party::whereEmail('technician@handyman.com')->first();
 
+        // categories
+        $carpentry = App\Category::where('name', 'Carpentry')->first();
+        $plumbing  = App\Category::where('name', 'Plumbing')->first();
+        $painting  = App\Category::where('name', 'Painting')->first();
+        $general   = App\Category::where('name', 'General Handyman')->first();
+
+
         $jobs = [
             [
                 // "description" => 'Fix leaking sink',
@@ -24,7 +31,8 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '3000',
                 "created_by"  => $party->id,
                 "assigned_to" => $handyman->id,
-                "status"      => "COMPLETE"
+                "service_id"  => $carpentry->services->id,
+                "status"      => "COMPLETE",
             ],
             [
                 // "description" => 'Fix cranky door',
@@ -34,6 +42,7 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '3500',
                 "created_by"  => $party->id,
                 "assigned_to" => $handyman->id,
+                "service_id"  => $plumbing->services->id,
                 "status"      => "ONGOING"
             ],
             [
@@ -44,6 +53,7 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '2600',
                 "assigned_to" => $handyman->id,
                 "created_by"  => $party->id,
+                "service_id"  => $painting->services->id,
                 "status"      => "COMPLETE"
             ],
             [
@@ -54,6 +64,7 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '6100',
                 "assigned_to" => null,
                 "created_by"  => $party->id,
+                "service_id"  => $plumbing->services->id,
                 "status"      => "PENDING"
             ],
             [
@@ -64,6 +75,7 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '4300',
                 "assigned_to" => null,
                 "created_by"  => $party->id,
+                "service_id"  => $general->services->id,
                 "status"      => "PENDING"
             ]
         ];

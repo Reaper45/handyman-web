@@ -34,7 +34,10 @@ Route::prefix('v1')->group(function (){
 
     Route::get('/party/{id}/jobs/ongoing', 'ApiController@ongoingJobs');
 
+    // Categories
     Route::get('/categories', 'ApiController@categories');
+    
+    Route::get('/categories/{id}/services', 'ApiController@categoryServices');
 
     // Route::get('/test', function() {
     //     return response()->json([

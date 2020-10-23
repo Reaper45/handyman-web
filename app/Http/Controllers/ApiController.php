@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Traits\ControllerHelpers;
 use App\Job;
 use App\Party;
+use App\Service;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -91,15 +92,17 @@ class ApiController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * categoryServices
      *
      * @param  \Illuminate\Http\Request  $request
      * 
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function categoryServices($id)
     {
-        //
+        $services = Service::where("category_id", $id)->get();
+
+        return response($this->api_response(true, ["services" => $services], "Request completed"), 200);
     }
 
     /**
