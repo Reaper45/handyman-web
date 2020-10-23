@@ -32,6 +32,8 @@ Route::prefix('v1')->group(function (){
 
     Route::post('/jobs/complete', 'ApiController@completeJob');
 
+    Route::post('/jobs/request', 'ApiController@jobRequest');
+
     Route::get('/party/{id}/jobs/ongoing', 'ApiController@ongoingJobs');
 
     // Categories

@@ -15,16 +15,19 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->text('description')->nullable();
             $table->enum('status', ['PENDING', 'ONGOING', 'COMPLETE'])->default("PENDING");
-            $table->foreignId('created_by');
-            $table->foreignId('assigned_to')->nullable();
-            $table->foreignId('category_id')->nullable();
-            $table->foreignId('service_id')->nullable();
             $table->float('lat')->nullable();
             $table->float('lon')->nullable();
             $table->string('location')->nullable();
-            $table->float('amount', 8, 2)->nullable();
+            $table->text('extra')->nullable();
+            $table->date('scheduled_time', 0)->nullable();;	
+            $table->time('scheduled_date', 0)->nullable();;	
+
+            $table->foreignId('created_by');
+            $table->foreignId('assigned_to')->nullable();
+            $table->foreignId('service_id')->nullable();
+            $table->foreignId('category_id')->nullable();
+
             $table->timestamps();
 
             $table->foreign('created_by')->references('id')->on('parties');

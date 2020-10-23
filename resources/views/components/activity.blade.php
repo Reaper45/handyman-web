@@ -9,7 +9,7 @@
             </div>
             <div class="ml-4">
                 <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
-                    <b class="ml-1">{{ $job->description }}</b>
+                    <b class="ml-1">{{ $job->service->title }}</b>
                     <span class="ml-1 text-gray-500">
                         for Joram Mwashighadi
                     </span>
@@ -54,32 +54,36 @@
 
     <td class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200">
        <div class="flex">
-           <div class="mr-2">
-            <img
-                class="h-10 w-10 rounded-full"
-                src="{{ Gravatar::get($job->email) }}"
-                alt=""
-            />
-        </div>
-        <div class="text-sm leading-5 font-medium text-gray-700 truncate">
-            <b class="ml-1">{{ $job->name }}</b>
-            <div class="flex items-center text-sm leading-5 text-gray-500">
-                <svg
-                    class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    widht="20px"
-                    height="20px"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                        clip-rule="evenodd"
-                    ></path>
-                </svg>
-                {{$job->location}}
+           @if ($job->handyman)
+            <div class="mr-2">
+                <img
+                    class="h-10 w-10 rounded-full"
+                    src="{{ Gravatar::get($job->handyman->email) }}"
+                    alt=""
+                />
             </div>
-        </div>
+            <div class="text-sm leading-5 font-medium text-gray-700 truncate">
+                <b class="ml-1">{{ $job->handyman->name }}</b>
+                <div class="flex items-center text-sm leading-5 text-gray-500">
+                    <svg
+                        class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        widht="20px"
+                        height="20px"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                            clip-rule="evenodd"
+                        ></path>
+                    </svg>
+                    {{$job->location}}
+                </div>
+            </div>    
+            @else
+                <div class="mr-2">Unassigned</div>
+            @endif
        </div>
     </td>
 

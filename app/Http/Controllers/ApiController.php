@@ -33,7 +33,7 @@ class ApiController extends Controller
     public function acceptJob(Request $request)
     {
         $party_id = $request->input('party_id');
-        $job_id  = $request->input('job_id');
+        $job_id   = $request->input('job_id');
 
         $job = Job::find($job_id);
         $job->assigned_to = $party_id;
@@ -66,7 +66,7 @@ class ApiController extends Controller
      */
     public function completeJob(Request $request)
     {
-        $job_id  = $request->input('job_id');
+        $job_id = $request->input('job_id');
         
         $job = Job::find($job_id);
         $job->status = "COMPLETE";
@@ -106,13 +106,31 @@ class ApiController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * jobRequest.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function jobRequest(Request $request)
     {
-        //
+        $service_id  = $request->input('service_id');
+        $category_id = $request->input('category_id');
+        $location    = $request->input('location');
+        $date        = $request->input('date');
+        $time        = $request->input('time');
+        $info        = $request->input('info');
+        $user_id     = $request->input('user_id');
+
+        $job = new Job();
+        $job->service_id  = $service_id;
+        $job->category_id = $category_id;
+        $job->created_by  = $location;
+        $job->extra       = $info;
+        $job->created_by  = $user_id;
+
+        $job->save();
+
+        return response($this->api_response(true, ["job" => $job], "Request completed"), 200);
     }
 }

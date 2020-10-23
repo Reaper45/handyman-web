@@ -31,7 +31,7 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '3000',
                 "created_by"  => $party->id,
                 "assigned_to" => $handyman->id,
-                "service_id"  => $carpentry->services->id,
+                "service_id"  => $carpentry->services()->first()->id,
                 "status"      => "COMPLETE",
             ],
             [
@@ -42,7 +42,7 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '3500',
                 "created_by"  => $party->id,
                 "assigned_to" => $handyman->id,
-                "service_id"  => $plumbing->services->id,
+                "service_id"  => $plumbing->services()->first()->id,
                 "status"      => "ONGOING"
             ],
             [
@@ -53,7 +53,7 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '2600',
                 "assigned_to" => $handyman->id,
                 "created_by"  => $party->id,
-                "service_id"  => $painting->services->id,
+                "service_id"  => $painting->services()->first()->id,
                 "status"      => "COMPLETE"
             ],
             [
@@ -64,7 +64,7 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '6100',
                 "assigned_to" => null,
                 "created_by"  => $party->id,
-                "service_id"  => $plumbing->services->id,
+                "service_id"  => $plumbing->services()->first()->id,
                 "status"      => "PENDING"
             ],
             [
@@ -75,7 +75,7 @@ class JobsTableSeeder extends Seeder
                 // "amount"      => '4300',
                 "assigned_to" => null,
                 "created_by"  => $party->id,
-                "service_id"  => $general->services->id,
+                "service_id"  => $general->services()->first()->id,
                 "status"      => "PENDING"
             ]
         ];

@@ -9,7 +9,7 @@
             </div>
             <div class="ml-4">
                 <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
-                    <b class="ml-1">{{ $job->description }}</b>
+                    <b class="ml-1">{{ $job->service->title }}</b>
                     <span class="ml-1 text-gray-500">
                         for {{$job->creator->name }}
                     </span>
