@@ -9,6 +9,8 @@ use App\Party;
 use App\Service;
 use App\User;
 use Illuminate\Http\Request;
+use AfricasTalking\SDK\AfricasTalking;
+use Illuminate\Support\Facades\Log;
 
 class ApiController extends Controller
 {
@@ -36,14 +38,35 @@ class ApiController extends Controller
         $party_id = $request->input('party_id');
         $job_id   = $request->input('job_id');
 
-        $job = Job::find($job_id);
+        $job              = Job::find($job_id);
         $job->assigned_to = $party_id;
-        $job->status = "ONGOING";
+        $job->status      = "ONGOING";
+
 
         $job->update();
+        $handyman = Party::find($party_id);
+
+        // Send SMS
+        $this->sendSMS($job->creator->phone_number, $handyman);
 
         return response($this->api_response(true, ["job" => $job], "Request completed"), 200);
 
+    }
+
+    public function sendSMS($phone_number, $handyman)
+    {
+        $username = 'Reaper45'; // use 'sandbox' for development in the test environment
+        $apiKey   = '7a93217759d5b3005a0d14af47e55f8d7e83eb9e0bcc95bd4462296631f74648'; // use your sandbox app API key for development in the test environment
+        $AT       = new AfricasTalking($username, $apiKey);
+
+        $sms      = $AT->sms();
+
+        $result   = $sms->send([
+            'to'      => $phone_number,
+            'message' => 'Good News. ' .$handyman->name.' has picked your task. The handyman will make contact in a few, or feel free to reach out' .$handyman->phone_number,
+        ]);
+
+        Log::info($result);
     }
 
     /**

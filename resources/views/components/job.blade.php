@@ -87,6 +87,12 @@
        </div>
     </td>
 
+    <td class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200">
+        <div class="flex items-center text-sm leading-5 text-gray-500">
+            {{$job->extra}}
+        </div>
+    </td>
+
     <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium border-b border-gray-200">
         <span class="inline-flex ml-3 px-2 text-xs leading-5 font-semibold rounded-full bg-{{ $job->status === "COMPLETE" ? "green" : ($job->status === "ONGOING" ? "blue" : "orange")  }}-200 text-{{ $job->status === "COMPLETE" ? "green" : ($job->status === "ONGOING" ? "blue" : "orange")  }}-800">
             {{$job->status}}
