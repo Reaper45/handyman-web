@@ -36,6 +36,7 @@
             </div>
         </div>
     </td>
+
     <td class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200">
         <div class=" ml-3 text-sm leading-5 font-medium text-gray-700 truncate">
             <div class="flex items-center text-sm leading-5 text-gray-700">
@@ -55,9 +56,7 @@
                 {{$job->location}}
             </div>
             <span class="flex items-center text-sm leading-5">
-                <em class="ml-3 hidden xs:inline-flex md:inline-flex text-gray-400">
-                    <small>Posted Today</small>
-                </em>
+                <small class="ml-3 hidden xs:inline-flex md:inline-flex text-gray-400">{{$job->extra}}</small>
             </span>
         </div>
     </td>

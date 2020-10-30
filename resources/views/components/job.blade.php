@@ -3,9 +3,7 @@
     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
         <div class="flex items-center">
             <div class="flex-shrink-0 h-10 w-10">
-                <img
-                    class="h-10 w-10 rounded border-gray-400 focus:border-blue-500"
-                    src="{{ asset('img/logo.png') }}" />
+                <img class="h-10 w-10 rounded border-gray-400 focus:border-blue-500" src="{{ asset('img/logo.png') }}" />
             </div>
             <div class="ml-4">
                 <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
@@ -37,6 +35,32 @@
         </div>
     </td>
 
+   <td class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200">
+        <div class=" ml-3 text-sm leading-5 font-medium text-gray-700 truncate">
+            @if ($job->location)
+                <div class="flex items-center text-sm leading-5 text-gray-700">
+                    <svg
+                        class="flex-shrink-0 mr-2 h-5 w-5 text-gray-500"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        widht="20px"
+                        height="20px"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                            clip-rule="evenodd"
+                        ></path>
+                    </svg>
+                    {{$job->location}}
+                </div>
+            @endif
+            <span class="flex items-center text-sm leading-5">
+                <small class="ml-3 hidden xs:inline-flex md:inline-flex text-gray-400">{{$job->extra}}</small>
+            </span>
+        </div>
+    </td>
+
     <td class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200">
        <div class="flex">
             @if ($job->handyman)
@@ -62,12 +86,6 @@
                 <div class="mr-2">Unassigned</div>
             @endif
        </div>
-    </td>
-
-    <td class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200">
-        <div class="flex items-center text-sm leading-5 text-gray-500">
-            {{$job->extra}}
-        </div>
     </td>
 
     <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium border-b border-gray-200">
