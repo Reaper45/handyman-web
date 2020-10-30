@@ -20,8 +20,8 @@ class CreateJobsTable extends Migration
             $table->float('lon')->nullable();
             $table->string('location')->nullable();
             $table->text('extra')->nullable();
-            $table->date('scheduled_time', 0)->nullable();;	
-            $table->time('scheduled_date', 0)->nullable();;	
+            $table->date('scheduled_date', 0)->nullable();
+            $table->time('scheduled_time', 0)->nullable();
 
             $table->foreignId('created_by');
             $table->foreignId('assigned_to')->nullable();

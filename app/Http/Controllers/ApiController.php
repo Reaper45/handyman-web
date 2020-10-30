@@ -55,8 +55,8 @@ class ApiController extends Controller
 
     public function sendSMS($phone_number, $handyman)
     {
-        $username = 'Reaper45'; // use 'sandbox' for development in the test environment
-        $apiKey   = '7a93217759d5b3005a0d14af47e55f8d7e83eb9e0bcc95bd4462296631f74648'; // use your sandbox app API key for development in the test environment
+        $username = 'Reaper45';
+        $apiKey   = '7a93217759d5b3005a0d14af47e55f8d7e83eb9e0bcc95bd4462296631f74648';
         $AT       = new AfricasTalking($username, $apiKey);
 
         $sms      = $AT->sms();
@@ -145,13 +145,18 @@ class ApiController extends Controller
         $time        = $request->input('time');
         $info        = $request->input('info');
         $user_id     = $request->input('user_id');
+        $geometry    = $request->input('geometry');
 
         $job = new Job();
-        $job->service_id  = $service_id;
-        $job->category_id = $category_id;
-        $job->location    = $location;
-        $job->extra       = $info;
-        $job->created_by  = $user_id;
+        $job->service_id     = $service_id;
+        $job->category_id    = $category_id;
+        $job->location       = $location;
+        $job->extra          = $info;
+        $job->created_by     = $user_id;
+        $job->lat            = $geometry['lat'];
+        $job->lon            = $geometry['lng'];
+        $job->scheduled_time = $time ;
+        $job->scheduled_date = $date;
 
         $job->save();
 
