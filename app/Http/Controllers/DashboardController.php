@@ -33,10 +33,7 @@ class DashboardController extends Controller
         ];
 
         // Recently updated jobs
-        // $jobs = DB::table('jobs')->join('parties', 'parties.id', '=', 'jobs.created_by')->orderBy('jobs.updated_at', 'desc')->limit(5)->get();
-        $jobs = Job::all();
-
-        // dd($jobs);
+        $jobs = Job::all()->take(5);
 
         return view('dashboard')->with(["stats" => $stats, "jobs" => $jobs]);
     }
