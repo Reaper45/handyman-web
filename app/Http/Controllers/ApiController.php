@@ -63,7 +63,7 @@ class ApiController extends Controller
 
         $result   = $sms->send([
             'to'      => $phone_number,
-            'message' => 'Good News. ' .$handyman->name.' has picked your task. The handyman will make contact in a few, or feel free to reach out' .$handyman->phone_number,
+            'message' => 'Good News. ' . trim($handyman->name) .'has picked your task. The handyman will make contact in a few, or feel free to reach out' .$handyman->phone_number,
         ]);
 
         Log::info($result);
